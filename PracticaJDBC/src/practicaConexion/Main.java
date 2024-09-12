@@ -14,6 +14,12 @@ public class Main {
         
         // Instanciamos el objeto para conectarnos a la BBDD.
         ConexionJDBC objetoUsuarios = new ConexionJDBC();
+        
+        // Llamar el método para la creación de los usuarios.
+        objetoUsuarios.crear();
+        
+        // Llamar el método para cosultar los usuarios y poder validar los cambios.
+        objetoUsuarios.consultar();
     }
     
 }

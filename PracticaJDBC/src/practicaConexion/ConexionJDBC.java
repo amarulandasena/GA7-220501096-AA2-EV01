@@ -30,10 +30,10 @@ public class ConexionJDBC {
             // Instanciamos y cargamos el driver en memoria.
             Class.forName(driver);
             
-            // Instanciamos el objeto conexión con la cadena de conexión.
+            // Instanciamos el objeto Connection con la cadena de conexión.
             conectar = DriverManager.getConnection(url, user, password);
             
-            // Instanciamos el objeto statement para realizar las consultas SQL.
+            // Instanciamos el objeto Statement para realizar las consultas SQL.
             statement = conectar.createStatement();
             
         } catch (Exception ex) {
@@ -44,6 +44,13 @@ public class ConexionJDBC {
     // Método para crear los usuarios.
     public void crear () {
         try{
+            String query = "INSERT INTO usuarios VALUES ('13579', 'Ana Maria', 'Cortes', 'Gerente', 'amc135')";
+            
+            // Ya que esta es una consulta que no retornará ninúgn dato, usamos el Statement ExcuteUpdate.
+            statement.executeUpdate(query);
+            
+            // Generamos un mensaje que nos indique que el usuario fue creado correctamente.
+            System.out.println("Usuario creado exitosamente");
             
         } catch (Exception ex){
             ex.printStackTrace();
@@ -71,6 +78,27 @@ public class ConexionJDBC {
     // Método para consultar usuarios.
     public void consultar () {
         try{
+            // Instanciamos la variable para crear la consulta.
+            String query = "SELECT * FROM usuarios";
+            
+            // Utilizamos el método executeQuery de la interfaz statement ya que este nos retorna los datos de la tabla.
+            rs = statement.executeQuery(query);
+            
+            // Creamos un ciclo para poder iterar en todos los registros de la tabla.
+            while (rs.next()) {
+                
+                String id = rs.getString("numIdentificacion");
+                String nombres = rs.getString("nombres");
+                String apellidos = rs.getString("apellidos");
+                String rol = rs.getString("rol");
+                // String contrasegna = rs.getString("contrasegna");
+                
+                // Imprimimos en la consola cada uno de los registros.
+                System.out.println("Número de identificación: " + id + "\n" + 
+                                   "Nombres: " + nombres + "\n" + 
+                                   "Apellidos: " + apellidos + "\n" + 
+                                   "Rol: " + rol + "\n");
+            }
             
         } catch (Exception ex){
             ex.printStackTrace();
