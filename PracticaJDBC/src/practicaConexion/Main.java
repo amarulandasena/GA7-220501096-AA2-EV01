@@ -16,9 +16,15 @@ public class Main {
         ConexionJDBC objetoUsuarios = new ConexionJDBC();
         
         // Llamar el método para la creación de los usuarios.
-        objetoUsuarios.crear();
+        // objetoUsuarios.crear();
         
-        // Llamar el método para cosultar los usuarios y poder validar los cambios.
+        // LLamar el método para actualizar los datos de los usuarios.
+        // objetoUsuarios.modificar();
+        
+        // LLamar el método para eliminar el primer usuario creado.
+        //objetoUsuarios.eliminar();
+        
+        // Consultamos de nuevo la tabla de usuarios.
         objetoUsuarios.consultar();
     }
     

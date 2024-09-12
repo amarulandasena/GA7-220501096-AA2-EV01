@@ -44,13 +44,13 @@ public class ConexionJDBC {
     // Método para crear los usuarios.
     public void crear () {
         try{
-            String query = "INSERT INTO usuarios VALUES ('13579', 'Ana Maria', 'Cortes', 'Gerente', 'amc135')";
+            String query = "INSERT INTO usuarios VALUES ('14785', 'Julian', 'Carmona', 'Segregador', 'jcx137')";
             
             // Ya que esta es una consulta que no retornará ninúgn dato, usamos el Statement ExcuteUpdate.
             statement.executeUpdate(query);
             
             // Generamos un mensaje que nos indique que el usuario fue creado correctamente.
-            System.out.println("Usuario creado exitosamente");
+            System.out.println("Usuario creado exitosamente \n");
             
         } catch (Exception ex){
             ex.printStackTrace();
@@ -60,7 +60,22 @@ public class ConexionJDBC {
     // Método para modificar los usuarios.
     public void modificar () {
         try{
+            // Instanciar una variable para la madificación de cada uno de los datos.
+            String queryNombres = "UPDATE usuarios SET nombres = 'Juan Camilo' WHERE numIdentificacion = '12345'";
+            statement.executeUpdate(queryNombres);
             
+            String queryApellidos = "UPDATE usuarios SET apellidos = 'Pulido' WHERE numIdentificacion = '13579'";
+            statement.executeUpdate(queryApellidos);
+            
+            String queryRol = "UPDATE usuarios SET rol = 'Gerente retail' WHERE numIdentificacion = '67890'";
+            statement.executeUpdate(queryRol);
+            
+            String queryContrasegna = "UPDATE usuarios SET contrasegna = 'jcx147' WHERE numIdentificacion = '14785'";
+            statement.executeUpdate(queryContrasegna);
+            
+            // Generamos un mensaje que nos indique que el usuario fue actualizado correctamente.
+            System.out.println("Usuario actualizado exitosamente \n");
+  
         } catch (Exception ex){
             ex.printStackTrace();
         }
@@ -69,6 +84,13 @@ public class ConexionJDBC {
     // Método para eliminar usuarios.
     public void eliminar () {
         try{
+            String query = "DELETE FROM usuarios WHERE numIdentificacion = '12345'";
+            
+            // executeUpdtae ejecuta las consultas SQL para INSERT, UPDATE y DELETE.
+            statement.executeUpdate(query);
+            
+            // Generamos un mensaje que nos indique que el usuario fue eliminado correctamente.
+            System.out.println("Usuario eliminado exitosamente \n");
             
         } catch (Exception ex){
             ex.printStackTrace();
