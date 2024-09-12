@@ -22,5 +22,60 @@ public class ConexionJDBC {
     private Connection conectar;
     private Statement statement;
     private ResultSet rs;
+
+    // Constructor.
+    public ConexionJDBC() {
+        
+        try {
+            // Instanciamos y cargamos el driver en memoria.
+            Class.forName(driver);
+            
+            // Instanciamos el objeto conexión con la cadena de conexión.
+            conectar = DriverManager.getConnection(url, user, password);
+            
+            // Instanciamos el objeto statement para realizar las consultas SQL.
+            statement = conectar.createStatement();
+            
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+    }
+    
+    // Método para crear los usuarios.
+    public void crear () {
+        try{
+            
+        } catch (Exception ex){
+            ex.printStackTrace();
+        }
+    }
+    
+    // Método para modificar los usuarios.
+    public void modificar () {
+        try{
+            
+        } catch (Exception ex){
+            ex.printStackTrace();
+        }
+    }
+    
+    // Método para eliminar usuarios.
+    public void eliminar () {
+        try{
+            
+        } catch (Exception ex){
+            ex.printStackTrace();
+        }
+    }
+    
+    // Método para consultar usuarios.
+    public void consultar () {
+        try{
+            
+        } catch (Exception ex){
+            ex.printStackTrace();
+        }
+    }
+    
     
 }
